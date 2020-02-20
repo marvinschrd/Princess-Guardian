@@ -219,7 +219,7 @@ MonoBehaviour:
   - {fileID: 7431852452620945347, guid: f84898218d9207c429d1d2d2f20429c5, type: 3}
   - {fileID: 5611877006741575428, guid: ed484c8ab3f0cfc47b5bf1b1d3cddb20, type: 3}
   timeBeforeInstantiate: 5
-  dispertion: 10
+  dispertion: 2
 --- !u!1 &312969266
 GameObject:
   m_ObjectHideFlags: 0

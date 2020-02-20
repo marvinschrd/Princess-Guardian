@@ -30,8 +30,12 @@ public class InvokerManager : MonoBehaviour
     {
         int indexMonster = Random.Range(0, monster.Length);
         int indexSpawnPosition = Random.Range(0, monster.Length);
-        
         GameObject invocation = Instantiate(monster[indexMonster], spawner[indexSpawnPosition].position, Quaternion.identity);
         invocation.transform.position += (Vector3)Random.insideUnitCircle * dispertion;
+
+        int indexMonster2 = Random.Range(0, monster.Length);
+        GameObject invocation2 = Instantiate(monster[indexMonster2], spawner[indexSpawnPosition].position, Quaternion.identity);
+        invocation.transform.position += (Vector3)Random.insideUnitCircle * dispertion;
+
     }
 }
