@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemiesMove : MonoBehaviour
 {
-    [SerializeField] int speed;
-    [SerializeField] Transform target;
+    [SerializeField] float speed;
+    Transform Target;
     Vector3 targetPosition;
     Princess princess;
     Vector2 princessPosition;
     void Start()
     {
-        targetPosition = new Vector2(target.position.x, target.position.y);
+       // targetPosition = new Vector2(Target.position.x, Target.position.y);
         princess = FindObjectOfType<Princess>();
     }
 
@@ -43,5 +43,10 @@ public class EnemiesMove : MonoBehaviour
                 }
                 break;
         }
+    }
+    public void GetFirstTarget(Transform target)
+    {
+        Target = target;
+        targetPosition = new Vector2(Target.position.x, Target.position.y);
     }
 }
