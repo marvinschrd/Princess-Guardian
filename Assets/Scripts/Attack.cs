@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     //PlayerAttack PlayerAttack;
     //[SerializeField] GameObject attack;
-    //[SerializeField] Collider2D collider;
+    [SerializeField] Collider2D collider;
     bool canDamage = false;
     [SerializeField] int damage = 0;
 
@@ -15,7 +15,7 @@ public class Attack : MonoBehaviour
     float cooldownTime = 0;
     void Start()
     {
-       // collider.enabled = false;
+        collider.enabled = false;
     }
 
     enum AttackState
@@ -41,12 +41,14 @@ public class Attack : MonoBehaviour
                 }
                 break;
             case AttackState.ATTACKING:
-               // collider.enabled = true;
-                canDamage = true;
+                // collider.enabled = true;
+                // canDamage = true;
+                collider.enabled = true;
                 state = AttackState.COOLDOWN;
                 break;
             case AttackState.COOLDOWN:
-                canDamage = false;
+                // canDamage = false;
+                collider.enabled = false;
                 cooldownTime -= Time.deltaTime;
                 if(cooldownTime<=0)
                 {
@@ -58,7 +60,7 @@ public class Attack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "enemy"&&canDamage)
+        if (collision.gameObject.tag == "enemy")
         {
             Debug.Log("entered");
             Health health;

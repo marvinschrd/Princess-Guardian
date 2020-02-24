@@ -41,8 +41,6 @@ public class EnemiesMove : MonoBehaviour
                 }
                 break;
             case State.MOVING_TO_FIRST_TARGET:
-                Debug.Log("first");
-                Debug.Log(targetPosition);
                 if (Vector2.Distance(targetPosition, transform.position) > 0.1f)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -53,7 +51,6 @@ public class EnemiesMove : MonoBehaviour
                 }
                 break;
             case State.MOVING_TO_PRINCESS:
-                Debug.Log("princess");
                 princessPosition = princess.GivePosition();
                 if (Vector2.Distance(princessPosition, transform.position) > 0.1f)
                 {
