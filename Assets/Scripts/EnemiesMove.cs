@@ -9,10 +9,18 @@ public class EnemiesMove : MonoBehaviour
     Vector3 targetPosition;
     Princess princess;
     Vector2 princessPosition;
+
+    /*//provisoir
+    [SerializeField] int health;
+    Trap trap;
+    [SerializeField] int damage;
+    //provisoir*/
     void Start()
     {
        // targetPosition = new Vector2(Target.position.x, Target.position.y);
         princess = FindObjectOfType<Princess>();
+        //provisoir
+        //trap = FindObjectOfType<Trap>();
     }
 
     enum State
@@ -43,10 +51,26 @@ public class EnemiesMove : MonoBehaviour
                 }
                 break;
         }
+       /* //provisoir
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        //provisooir*/
     }
     public void GetFirstTarget(Transform target)
     {
         Target = target;
         targetPosition = new Vector2(Target.position.x, Target.position.y);
     }
+    /*//provisoir
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "trap")
+        {
+            health -= damage;
+            //trap.itsAtrap();
+        }
+    }
+    //provisoir*/
 }

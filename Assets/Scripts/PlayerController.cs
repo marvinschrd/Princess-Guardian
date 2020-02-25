@@ -10,11 +10,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerAttack playerAttack;
     [SerializeField] Collider2D attackCollider;
 
+    //provisoir
+    [SerializeField] private Transform[] spawn;
+    [SerializeField] GameObject trap;
+    [SerializeField] int actualCooldown;
+    bool trapspawned;
+    CooldownTrap cooldownTrap;
+    int count;
+        //provisoir
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         attackCollider.enabled = false;
+        cooldownTrap = FindObjectOfType<CooldownTrap>();
     }
 
     private void FixedUpdate()
@@ -30,5 +40,34 @@ public class PlayerController : MonoBehaviour
         {
             attackCollider.enabled = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !trapspawned)
+        {
+            if (count <= 2)
+            {
+                GameObject invocation = Instantiate(trap, transform.position, Quaternion.identity);
+                count++;
+            }
+        }
     }
+    public void trapDown()
+    {
+        count--;
+    }
+    /*public IEnumerator cooldown()
+    {
+        if (count <= 2)
+        {
+            GameObject invocation = Instantiate(trap, transform.position, Quaternion.identity);
+            count++;
+        }
+        if (count >= 3)
+        {
+            trapspawned = true;
+            cooldownTrap.cooldownTrapSpawn();
+            yield return new WaitForSeconds(actualCooldown);
+            trapspawned = false;
+        }
+        
+    }*/
 }
