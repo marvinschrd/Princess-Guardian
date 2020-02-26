@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - trap
+  - room
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - player
   - trap
-  - 
+  - spear
   - 
   - 
   - 

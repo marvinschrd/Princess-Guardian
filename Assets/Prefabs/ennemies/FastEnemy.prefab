@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3490154988744708812}
   - component: {fileID: 3717346480045306091}
   - component: {fileID: -332688971051090123}
+  - component: {fileID: 5832487301463834559}
   m_Layer: 0
   m_Name: FastEnemy
   m_TagString: enemy
@@ -168,3 +169,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5832487301463834559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479602947343969651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923cdb2c0156fa1478c832b33580fae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  colorTimer: 0.3

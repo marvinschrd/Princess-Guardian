@@ -14,15 +14,21 @@ public class Princess : MonoBehaviour
     Vector2 newTarget;
     bool choseNewTarget = false;
    [SerializeField] bool moveAround = false;
+
+    [SerializeField] SpriteRenderer exclamation;
+    [SerializeField] float waitingTime = 0;
+    float waitingTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
         basePosition = transform.position;
+        exclamation.enabled = false;
     }
 
     enum State
     {
         NOT_MOVING,
+        WAITING_TO_MOVE,
         MOVING_AROUND,
         RETURNING_TO_BASE_LOCATION
     }
@@ -35,8 +41,17 @@ public class Princess : MonoBehaviour
         {
             case State.NOT_MOVING:
                 movingAroundTime = movingAroundTimer;
+                waitingTimer = waitingTime;
                 choseNewTarget = true;
                 if(moveAround)
+                {
+                    state = State.WAITING_TO_MOVE;
+                }
+                break;
+            case State.WAITING_TO_MOVE:
+                exclamation.enabled = true;
+                waitingTime -= Time.deltaTime;
+                if(waitingTime<=0)
                 {
                     state = State.MOVING_AROUND;
                 }

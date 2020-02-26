@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -135061136901745095}
   - component: {fileID: 4802337115017399604}
   - component: {fileID: -3815131415899570375}
+  - component: {fileID: 6959052328033467048}
   m_Layer: 0
   m_Name: SuperStrongEnemy
   m_TagString: enemy
@@ -168,3 +169,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6959052328033467048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121716741425443182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923cdb2c0156fa1478c832b33580fae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 70
+  colorTimer: 0.3
