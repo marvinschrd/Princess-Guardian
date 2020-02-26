@@ -25,12 +25,18 @@ public class Princess : MonoBehaviour
     [SerializeField] float damageTimer = 0;
     float damageTime = 0;
     bool activateDelay = false;
+
+    HealthBar healthBar;
+    [SerializeField] GameObject panelLoose;
+    MenuPanelGame panelPause;
     // Start is called before the first frame update
     void Start()
     {
         basePosition = transform.position;
         exclamation.enabled = false;
         damageTime = damageTimer;
+        panelPause = FindObjectOfType<MenuPanelGame>();
+        healthBar = FindObjectOfType<HealthBar>();
     }
 
     enum State
@@ -101,7 +107,12 @@ public class Princess : MonoBehaviour
         { 
         damageDelay();
         }
-
+        if (health <= 0)
+        {
+            panelLoose.SetActive(true);
+            Time.timeScale = 0;
+            panelPause.EndGame();
+        }
     }
     public Vector2 GivePosition()
     {
@@ -129,6 +140,7 @@ public class Princess : MonoBehaviour
             princessSprite.color = Color.red;
          canTakedamage = false;
             activateDelay = true;
+            healthBar.HealthAmount();
         }
     }
 
