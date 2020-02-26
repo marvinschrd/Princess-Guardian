@@ -274,7 +274,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.3_89
   - first:
       213: -4103625798589041330
-    second: 0x72_DungeonTilesetII_v1.3_90
+    second: Trap 1
   - first:
       213: 4728544123085518217
     second: 0x72_DungeonTilesetII_v1.3_91
@@ -757,13 +757,13 @@ TextureImporter:
     second: PIDLE 4
   - first:
       213: 1718942867475571705
-    second: 0x72_DungeonTilesetII_v1.3_251
+    second: Trap 0
   - first:
       213: 2448318938337609585
-    second: 0x72_DungeonTilesetII_v1.3_252
+    second: Trap 2
   - first:
       213: 7794487896404031096
-    second: 0x72_DungeonTilesetII_v1.3_253
+    second: Trap 3
   - first:
       213: -9112887182806983685
     second: 0x72_DungeonTilesetII_v1.3_254
@@ -6119,7 +6119,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.3_251
+      name: Trap 0
       rect:
         serializedVersion: 2
         x: 16
@@ -6140,7 +6140,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.3_90
+      name: Trap 1
       rect:
         serializedVersion: 2
         x: 31
@@ -6161,7 +6161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.3_252
+      name: Trap 2
       rect:
         serializedVersion: 2
         x: 48
@@ -6182,7 +6182,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.3_253
+      name: Trap 3
       rect:
         serializedVersion: 2
         x: 64
