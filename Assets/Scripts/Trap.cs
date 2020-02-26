@@ -7,10 +7,15 @@ public class Trap : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int health;
     PlayerController trap;
+
+    Animator animator_;
+
+    Health ennemyHealth;
+
     void Start()
     {
         trap = FindObjectOfType<PlayerController>();
-
+        animator_ = GetComponentInChildren<Animator>();
     }
 
 
@@ -23,11 +28,15 @@ public class Trap : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {
-            Health health;
-            health = collision.gameObject.GetComponent<Health>();
-            health.TakeDamage(damage);
-            trap.trapDown();
-            Destroy(gameObject);
+            animator_.SetBool("Activate", true);
+           
+            ennemyHealth = collision.gameObject.GetComponent<Health>();
         }
+    }
+    public void TrapDamage()
+    {
+        ennemyHealth.TakeDamage(damage);
+        trap.trapDown();
+        Destroy(gameObject, 1f);
     }
 }

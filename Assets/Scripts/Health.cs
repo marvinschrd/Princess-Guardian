@@ -39,6 +39,7 @@ public class Health : MonoBehaviour
         sprite.color = Color.red;
         if(colorTime<=0)
         {
+            sprite.color = Color.white;
             canColor = false;
         }
     }
