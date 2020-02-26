@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - trap
   - room
+  - princess
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - player
   - trap
   - spear
-  - 
+  - enemy
   - 
   - 
   - 

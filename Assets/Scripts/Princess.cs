@@ -16,13 +16,21 @@ public class Princess : MonoBehaviour
    [SerializeField] bool moveAround = false;
 
     [SerializeField] SpriteRenderer exclamation;
+    [SerializeField] SpriteRenderer princessSprite;
     [SerializeField] float waitingTime = 0;
     float waitingTimer = 0;
+
+    [SerializeField] int health;
+    bool canTakedamage = true;
+    [SerializeField] float damageTimer = 0;
+    float damageTime = 0;
+    bool activateDelay = false;
     // Start is called before the first frame update
     void Start()
     {
         basePosition = transform.position;
         exclamation.enabled = false;
+        damageTime = damageTimer;
     }
 
     enum State
@@ -47,6 +55,7 @@ public class Princess : MonoBehaviour
                 {
                     state = State.WAITING_TO_MOVE;
                 }
+                exclamation.enabled = false;
                 break;
             case State.WAITING_TO_MOVE:
                 exclamation.enabled = true;
@@ -88,6 +97,11 @@ public class Princess : MonoBehaviour
                 moveAround = false;
                 break;
         }
+        if(activateDelay)
+        { 
+        damageDelay();
+        }
+
     }
     public Vector2 GivePosition()
     {
@@ -101,4 +115,34 @@ public class Princess : MonoBehaviour
         newTarget = new Vector2(xTarget, yTarget);
         choseNewTarget = false;
     }
+    public void WanderingActivation()
+    {
+        moveAround = true;
+    }
+
+    public void takeDamage()
+    {
+        if(canTakedamage)
+        {
+            damageTime = damageTimer;
+         health--;
+            princessSprite.color = Color.red;
+         canTakedamage = false;
+            activateDelay = true;
+        }
+    }
+
+    void damageDelay()
+    {
+        damageTime -= Time.deltaTime;
+        if(damageTime<=0)
+        {
+            canTakedamage = true;
+            activateDelay = false;
+            princessSprite.color = Color.white;
+
+        }
+
+    }
+
 }

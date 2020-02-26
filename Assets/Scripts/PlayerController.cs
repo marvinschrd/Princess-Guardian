@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int actualCooldown;
     bool trapspawned;
     CooldownTrap cooldownTrap;
+
+    bool facingRight = false;
+    bool facingLeft = true;
+    float horizontalSpeed;
+    Animator anim;
+
     int count;
         //provisoir
 
@@ -25,6 +31,7 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         attackCollider.enabled = false;
         cooldownTrap = FindObjectOfType<CooldownTrap>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -39,6 +46,22 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown("q"))
         {
             attackCollider.enabled = true;
+        }
+        horizontalSpeed = Input.GetAxis("Horizontal");
+       
+        if (horizontalSpeed > 0 && !facingLeft)
+        {
+           
+            facingLeft = true;
+            facingRight = false;
+            anim.transform.Rotate(0, 180, 0);
+        }
+        if (horizontalSpeed < 0 && !facingRight)
+        {
+           
+            facingRight = true;
+            facingLeft = false;
+            anim.transform.Rotate(0, 180, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !trapspawned)

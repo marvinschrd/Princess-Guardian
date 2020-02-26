@@ -26,6 +26,10 @@ public class InvokerManager : MonoBehaviour
     //int spawnNumber = 0;
     //Transform spawn;
 
+    int superStrongMonsterPobability = 4;
+    int strongMonsterProbability = 3;
+    int fastMonsterProbaility = 2;
+
 
     bool canChoseMonster = false;
     int chosenMonster = 0;
@@ -61,8 +65,8 @@ public class InvokerManager : MonoBehaviour
         {
             case State.CHOSING_MONSTER: // doit changer pour augmenter la chance de spawn un ennemi normal et non puissant
                // Debug.Log("chosing monster");
-            mmonster=(Monster)Random.Range(0,3);
-               // Debug.Log(mmonster);
+            mmonster=(Monster)Random.Range(0,4);
+               Debug.Log(mmonster);
                 canChoseMonster = true;
                 timer = timeBeforeInstantiate;
                 state = State.WAITING;
@@ -100,53 +104,53 @@ public class InvokerManager : MonoBehaviour
                     canChoseMonster = false;
                     break;
                 case Monster.FAST_MONSTER:
-                    //randomResult = Random.Range(0, 1);
-                    //Debug.Log(randomResult);
-                    //if (randomResult == 1)
-                    //{
-                    //    monsterToSpawn = fastMonster;
-                    //    state = State.CHOSING_SPAWN;
-                    //}
+                    randomResult = Random.Range(0, fastMonsterProbaility);
+                    Debug.Log(randomResult);
+                    if (randomResult == 0)
+                    {
+                       monsterToSpawn = fastMonster;
+                        state = State.CHOSING_SPAWN;
+                    }
 
-                    //else
-                    //{
-                    //    state = State.CHOSING_MONSTER;
-                    //}
-                    monsterToSpawn = fastMonster;
-                    state = State.CHOSING_SPAWN;
+                    else
+                    {
+                       // state = State.CHOSING_MONSTER;
+                       monsterToSpawn = normalMonster;
+                       state = State.CHOSING_SPAWN;
+                    }
                     canChoseMonster = false;
                     break;
                 case Monster.STRONG_MONSTER:
-                    //randomResult = Random.Range(0, 3);
-                    //Debug.Log(randomResult);
-                    //if (randomResult == 3)
-                    //{
-                    //    monsterToSpawn = strongMonster;
-                    //    state = State.CHOSING_SPAWN;
-                    //}
-                    //else
-                    //{
-                    //    state = State.CHOSING_MONSTER;
-                    //}
-                    monsterToSpawn = strongMonster;
-                    state = State.CHOSING_SPAWN;
-
+                    randomResult = Random.Range(0, strongMonsterProbability);
+                    Debug.Log(randomResult);
+                    if (randomResult == 0)
+                    {
+                        monsterToSpawn = strongMonster;
+                        state = State.CHOSING_SPAWN;
+                    }
+                    else
+                    {
+                        //state = State.CHOSING_MONSTER;
+                        monsterToSpawn = fastMonster;
+                        state = State.CHOSING_SPAWN;
+                    }
+                  
                     canChoseMonster = false;
                     break;
                 case Monster.SUPER_STRONG_MONSTER:
-                    //randomResult = Random.Range(0, 4);
-                    //Debug.Log(randomResult);
-                    //if (randomResult == 4)
-                    //{
-                    //    monsterToSpawn = superStrongMonster;
-                    //    state = State.CHOSING_SPAWN;
-                    //}
-                    //else
-                    //{
-                    //    state = State.CHOSING_MONSTER;
-                    //}
-                    monsterToSpawn = superStrongMonster;
-                    state = State.CHOSING_SPAWN;
+                    randomResult = Random.Range(0, superStrongMonsterPobability);
+                    Debug.Log(randomResult);
+                    if (randomResult == 0)
+                    {
+                        monsterToSpawn = superStrongMonster;
+                        state = State.CHOSING_SPAWN;
+                    }
+                    else
+                    {
+                        //state = State.CHOSING_MONSTER;
+                         monsterToSpawn = strongMonster;
+                         state = State.CHOSING_SPAWN;
+                    }
 
                     canChoseMonster = false;
                     break;
@@ -154,7 +158,7 @@ public class InvokerManager : MonoBehaviour
         }
 
         
-
+       
 
 
 
@@ -165,7 +169,24 @@ public class InvokerManager : MonoBehaviour
         //    timer = restartTimer;
         //}
     }
+
+    public void SuperStrongProbabilty(int probability)
+    {
+        superStrongMonsterPobability = probability;
+    }
+
+    public void StrongProbabilty(int probability)
+    {
+  
+        strongMonsterProbability = probability;
+    }
+    public void FastProbabilty(int probability)
+    {
+
+        fastMonsterProbaility = probability;
+    }
     
+
     //private void SpawnRandom()
     //{
     //    int indexMonster = Random.Range(0, monster.Length);

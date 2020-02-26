@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 4802337115017399604}
   - component: {fileID: -3815131415899570375}
   - component: {fileID: 6959052328033467048}
-  m_Layer: 0
+  - component: {fileID: 3055810737071152124}
+  m_Layer: 11
   m_Name: SuperStrongEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -124,11 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02259ac928de404887573d897e23d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  rightDown: {fileID: 0}
-  rightUp: {fileID: 0}
-  leftDown: {fileID: 0}
-  leftUp: {fileID: 0}
+  speed: 1
 --- !u!95 &4802337115017399604
 Animator:
   serializedVersion: 3
@@ -160,7 +157,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -183,3 +180,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 70
   colorTimer: 0.3
+--- !u!58 &3055810737071152124
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121716741425443182}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.375

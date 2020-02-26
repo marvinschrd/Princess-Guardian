@@ -13,15 +13,28 @@ public class EnemiesMove : MonoBehaviour
 
     bool chasePrincess = false;
 
-   [SerializeField] Transform rightDown;
-   [SerializeField] Transform rightUp;
-   [SerializeField] Transform leftDown;
-   [SerializeField] Transform leftUp;
+    bool facingRight = false;
+    bool facingLeft = true;
+
+     SpriteRenderer sprite;
+
+    Vector2 startingPosition;
+
+    bool princessIn = false;
+
+    
+
     void Start()
     {
        // targetPosition = new Vector2(Target.position.x, Target.position.y);
         princess = FindObjectOfType<Princess>();
        checkPositionForFirstTarget();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+        if(sprite==null)
+        {
+            Debug.Log("null");
+        }
+        
     }
 
     enum State
@@ -67,29 +80,25 @@ public class EnemiesMove : MonoBehaviour
                 }
                 break;
         }
-       /* //provisoir
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-        //provisooir*/
+      
     }
-    //public void GetFirstTarget(Transform target)
-    //{
-    //    Target = target;
-    //    targetPosition = new Vector2(Target.position.x, Target.position.y);
-    //}
 
     void checkPositionForFirstTarget()
     {
         if(gameObject.transform.position.x>0&&transform.position.y<0)
         {
+            facingLeft = true;
+            sprite.flipX = true;
+            Debug.Log("true");
             //Target = rightDown;
             //targetPosition = new Vector2(Target.position.x, Target.position.y);
             targetPosition = new Vector2(0, transform.position.y);
         }
         if(transform.position.x>0&&transform.position.y>0)
         {
+            facingLeft = true;
+            sprite.flipX = true;
+            Debug.Log("true");
             //Target = rightUp;
             //targetPosition = new Vector2(Target.position.x, Target.position.y);
             targetPosition = new Vector2(0, transform.position.y);
@@ -113,31 +122,16 @@ public class EnemiesMove : MonoBehaviour
     {
         chasePrincess = true;
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "room")
-    //    {
-    //        Debug.Log("entered");
-    //        chasePrincess = true;
-    //    }
-    //}
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
 
-    //    if (collision.gameObject.tag == "room")
-    //    {
-    //        Debug.Log("entered");
-    //        chasePrincess = true;
-    //    }
-    //}
-    /*//provisoir
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "trap")
+        if(collision.gameObject.tag=="princess")
         {
-            health -= damage;
-            //trap.itsAtrap();
+            Debug.Log("princess");
+            princess.takeDamage();
         }
     }
-    //provisoir*/
+
+
+
 }
