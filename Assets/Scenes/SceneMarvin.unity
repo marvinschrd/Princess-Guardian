@@ -2522,7 +2522,7 @@ PrefabInstance:
     - target: {fileID: 1561879268060687687, guid: 0fbb8bb60c9e8b444b64c3cccc3b0f01,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4334383985878322280, guid: 0fbb8bb60c9e8b444b64c3cccc3b0f01,
         type: 3}
@@ -8344,6 +8344,11 @@ PrefabInstance:
       propertyPath: panelLoose
       value: 
       objectReference: {fileID: 1211722924}
+    - target: {fileID: 645670799888734736, guid: 5063f4ced6560944e82281c2828a366d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 684468633, guid: 5063f4ced6560944e82281c2828a366d, type: 3}
       propertyPath: m_RootOrder
       value: 1
