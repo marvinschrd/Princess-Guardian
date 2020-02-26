@@ -127,7 +127,7 @@ public class EnemiesMove : MonoBehaviour
     {
         if(collision.gameObject.tag=="princess")
         {
-            Debug.Log("princess");
+
             princess.takeDamage();
         }
     }

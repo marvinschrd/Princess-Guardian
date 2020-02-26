@@ -17,10 +17,10 @@ public class roomTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger");
+
         if (collision.gameObject.tag == "enemy")
         {
-            Debug.Log("room");
+
             EnemiesMove ennemy;
             ennemy = collision.gameObject.GetComponent<EnemiesMove>();
             ennemy.InRoom();
