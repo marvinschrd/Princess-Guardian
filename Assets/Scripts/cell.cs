@@ -30,6 +30,7 @@ public class cell : MonoBehaviour
             Debug.Log("true");
             collider.enabled = true;
             collider2.enabled = true;
+            body.bodyType = RigidbodyType2D.Static;
         }
 
         if(Input.GetKeyDown("e")&&canFall&&cellCounter>0)
@@ -48,20 +49,24 @@ public class cell : MonoBehaviour
                 Cell.transform.position = startingPosition;
                 fall = false;
                 canFall = true;
+                body.bodyType = RigidbodyType2D.Dynamic;
+                body.gravityScale = 0;
+                collider.enabled =false;
+                collider2.enabled = false;
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("collision" + collision);
-        if(collision.gameObject.tag=="stop")
-        {
-            Debug.Log("true");
-            collider.enabled = true;
-            collider2.enabled = true;
-            body.bodyType = RigidbodyType2D.Static;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("collision" + collision);
+    //    if(collision.gameObject.tag=="stop")
+    //    {
+    //        Debug.Log("true");
+    //        collider.enabled = true;
+    //        collider2.enabled = true;
+    //        body.bodyType = RigidbodyType2D.Static;
+    //    }
+    //}
 
 
 
